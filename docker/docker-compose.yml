@@ -12,7 +12,7 @@ services:
       container_name: php
       networks:
         - backend
-      image: php:7.1-fpm
+      build: "./php/"
       expose:
         - 9000
       volumes:
@@ -27,7 +27,7 @@ services:
       networks:
         - frontend
         - backend
-      image: nginx:latest
+      build: "./nginx/"
       ports:
         - "80:80"
       volumes:
@@ -35,3 +35,32 @@ services:
         - ./log/nginx:/var/log/nginx
         - ./../Site:/var/www/html/Site
         - ./../System:/var/www/html/System
+
+# mysql
+  mysql:
+    container_name: mysql
+    networks:
+      - backend
+    ports:
+      - "3306:3306"
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: captaindb
+      MYSQL_USER: captain
+      MYSQL_PASSWORD: deadbeefde
+    command: mysqld --max_allowed_packet=1024M
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+
+# phpmyadmin for mysql
+  phpmyadmin_mysql:
+    container_name: phpmyadmin
+    networks:
+      - frontend
+      - backend
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql

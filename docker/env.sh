@@ -28,7 +28,8 @@ do
     echo "1. Nginx + PHP + MySQL + PHPMyAdmin"
     echo "2. php"
     echo "3. Nginx"
-
+    echo "4. MySQL"
+    echo "5. phpMyAdmin"
     echo "----------------------------------------"
     echo "c. Close all containers"
     echo "l. List all containers"
@@ -45,6 +46,10 @@ do
             docker-compose up -d --build php
             # 啟動 nginx
             docker-compose up -d --build nginx
+            # 啟動 mysql
+            docker-compose up -d --build mysql
+            # 啟動 phpmyadmin
+            docker-compose up -d --build phpmyadmin_mysql
             ;;
         2)
             # 啟動 php
@@ -54,7 +59,14 @@ do
             # 啟動 nginx
             docker-compose up -d --build nginx
             ;;
-
+        4)
+            # 啟動 mysql
+            docker-compose up -d --build mysql
+            ;;
+        5)
+            # 啟動 phpmyadmin
+            docker-compose up -d --build phpmyadmin_mysql
+            ;;
         s)
             # 啟動指定的服務
             if [  "$input2" == "" ]; then
