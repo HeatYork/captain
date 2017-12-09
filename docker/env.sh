@@ -33,8 +33,12 @@ do
     echo "----------------------------------------"
     echo "c. Close all containers"
     echo "l. List all containers"
-    echo "lc. List all compose containers"
     echo "q. Exit"
+    echo "----------------------------------------"
+    echo "Choose the operate you want to start:"
+    echo "----------------------------------------"
+    echo "ct. create table"
+    echo "rb. rollback"
     echo "----------------------------------------"
     read -p "Input:" input input2
 
@@ -87,13 +91,17 @@ do
             # 查看目前的 container
             docker ps -a
             ;;
-        lc)
-            # 查看目前docker-compose 的 contaniner
-            docker-compose ps
-            ;;
         c)
             # 關閉透過 docker-compose 產生的 container
             docker-compose down
+            ;;
+        ct)
+            # 執行 migrate
+            php ../vendor/bin/phinx migrate
+            ;;
+        rb)
+            # 執行 rollback
+            php ../vendor/bin/phinx rollback -t 0
             ;;
         *)
             # 離開程序

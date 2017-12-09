@@ -6,3 +6,4 @@ docker/nginx/log
 docker/mysql/data
 docker/mysql/data-ffmpeg
 docker/log
+/vendor
