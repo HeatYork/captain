@@ -21,5 +21,8 @@ if(ENV === 'online')
     \define('CONFIG_PATH', SYSTEM_PATH . '/Config');
 }
 
+
+
+
 # 測試
-\Model\Testmodel\Test::test();
+ echo \Kernel\Agent::instance($_SERVER['HTTP_USER_AGENT'])->platform();

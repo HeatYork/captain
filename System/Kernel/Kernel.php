@@ -49,7 +49,7 @@ switch(ENV)
 \spl_autoload_register(function($className) {
 
     // 自定義允許之 NameSpace
-    static $allowNameSpace = array('Model');
+    static $allowNameSpace = array('Kernel', 'Model');
 
     // 取得 NameSpace
     $nameSpace = \strstr($className, '\\', true);
