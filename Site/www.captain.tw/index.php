@@ -20,3 +20,5 @@ if(ENV === 'online')
 {
     \define('CONFIG_PATH', SYSTEM_PATH . '/Config');
 }
+
+\Kernel\Request::getQueryPath();
