@@ -1,6 +1,6 @@
 paths:
     migrations: ./migrations
-    seeds: %%PHINX_CONFIG_DIR%%/db/seeds
+
 
 environments:
     default_migration_table: phinxlog
@@ -10,8 +10,8 @@ environments:
         adapter: mysql
         host: 127.0.0.1
         name: captaindb
-        user: captain
-        pass: 'deadbeefde'
+        user: york
+        pass: 'york'
         port: 3306
         charset: utf8mb4
         collation: utf8mb4_unicode_ci
