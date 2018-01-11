@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+    <link rel="stylesheet" type="text/css" href="/Assets/css/bootstrap.css" media="screen">
     <!--START CSS START-->
     <?php foreach( $css as $v ):?>
         <!--START <?php echo ROOT_PATH.$v;?> START-->
@@ -26,7 +26,8 @@
 <?php echo $footerElement;?>
 <!--END FOOTER END-->
 
-</body>
+<script src="/Assets/js/jquery-3.2.1.js"></script>
+<script src="/Assets/js/bootstrap.js"></script>
 
 <!--START JSON DATA START-->
 <script>
@@ -43,4 +44,5 @@
     <!--END <?php echo ROOT_PATH.$v;?> END-->
 <?php endforeach;?>
 <!--END JS FILE END-->
+</body>
 </html>
